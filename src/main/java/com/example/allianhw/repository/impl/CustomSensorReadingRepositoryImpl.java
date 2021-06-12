@@ -8,14 +8,14 @@ import com.example.allianhw.repository.CustomSensorReadingRepository;
 import com.example.allianhw.result.SensorReadingResult;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -27,7 +27,12 @@ public class CustomSensorReadingRepositoryImpl implements CustomSensorReadingRep
     private EntityManager entityManager;
 
     @Override
-    public Page<SensorReadingResult> findAllByCityDistrictStartTimestampAndEndTimestamp(String cityName, String districtName, Date startTime, Date endTime, Pageable pageable) {
+    public List<SensorReadingResult> findAllByCityDistrictStartTimestampAndEndTimestamp(
+            String cityName,
+            String districtName,
+            Date startTime,
+            Date endTime
+    ) {
 
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<SensorReadingResult> dataQuery = builder.createQuery(SensorReadingResult.class);
@@ -70,36 +75,6 @@ public class CustomSensorReadingRepositoryImpl implements CustomSensorReadingRep
                 ).where(conditions.toArray(new Predicate[]{}))
         );
 
-        typedQuery.setFirstResult(1 * 10);
-        typedQuery.setMaxResults(10);
-        return new PageImpl<>(typedQuery.getResultList(), pageable, getAllCount(cityName, districtName, startTime, endTime));
-    }
-
-    private Long getAllCount(String cityName, String districtName, Date startTime, Date endTime) {
-        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Long> countQuery = builder.createQuery(Long.class);
-
-        Root<SensorReading> sensorReading = countQuery.from(SensorReading.class);
-        Join<SensorReading, Sensor> sensor = sensorReading.join("sensor");
-        Join<Sensor, District> district = sensor.join("district");
-        Join<District, City> city = district.join("city");
-
-
-        List<Predicate> conditions = new ArrayList<>();
-        conditions.add(builder.equal(city.get("name"), cityName));
-
-        if (StringUtils.isNotEmpty(districtName)) {
-            conditions.add(builder.equal(district.get("name"), districtName));
-        }
-
-        if (null != startTime) {
-            conditions.add(builder.greaterThanOrEqualTo(sensorReading.get("timestamp"), startTime));
-        }
-
-        if (null != endTime) {
-            conditions.add(builder.lessThanOrEqualTo(sensorReading.get("timestamp"), endTime));
-        }
-        countQuery.select(builder.count(sensorReading)).where(builder.and(conditions.toArray(new Predicate[]{})));
-        return entityManager.createQuery(countQuery).getSingleResult();
+        return typedQuery.getResultList();
     }
 }

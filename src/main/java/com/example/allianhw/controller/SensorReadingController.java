@@ -4,7 +4,6 @@ package com.example.allianhw.controller;
 import com.example.allianhw.dto.SensorReadingResponseDto;
 import com.example.allianhw.service.SensorReadingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +26,7 @@ public class SensorReadingController {
             @RequestParam(value = "end_time", required = false) Date end_time
     ) {
 
-        return sensorReadingService.fetchSensorReadingResponse(city_name, district_name, start_time, end_time, Pageable.unpaged());
+        return sensorReadingService.fetchSensorReadingResponse(city_name, district_name, start_time, end_time);
     }
 
 }

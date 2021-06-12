@@ -6,8 +6,6 @@ import com.example.allianhw.repository.SensorReadingRepository;
 import com.example.allianhw.result.SensorReadingResult;
 import com.example.allianhw.service.SensorReadingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -21,13 +19,12 @@ public class SensorReadingServiceImpl implements SensorReadingService {
     SensorReadingRepository sensorReadingRepository;
 
     @Override
-    public SensorReadingResponseDto fetchSensorReadingResponse(String cityName, String districtName, Date startTime, Date endTime, Pageable pageable) {
-        Page<SensorReadingResult> resultPage = sensorReadingRepository.findAllByCityDistrictStartTimestampAndEndTimestamp(cityName, districtName, startTime, endTime, pageable);
-        List<SensorReadingResult> resultList = resultPage.stream().collect(Collectors.toList());
+    public SensorReadingResponseDto fetchSensorReadingResponse(String cityName, String districtName, Date startTime, Date endTime) {
+        List<SensorReadingResult> resultList = sensorReadingRepository.findAllByCityDistrictStartTimestampAndEndTimestamp(cityName, districtName, startTime, endTime);
         return new SensorReadingResponseDto(
                 resultList.get(0).getCityName(),
                 resultList.stream().map(result -> new ReadingDto(result.getDistrictName(), result.getSensorId(), result.getCarbonReading(), result.getTimestamp()))
-                .collect(Collectors.toList())
-                );
+                        .collect(Collectors.toList())
+        );
     }
 }
