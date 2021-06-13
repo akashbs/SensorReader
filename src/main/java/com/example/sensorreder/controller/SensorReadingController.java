@@ -28,7 +28,7 @@ public class SensorReadingController {
     @ResponseBody
     public ResponseEntity getSensorReadings(
             @PathVariable(value = "city") String cityName,
-            @RequestParam(value = "districtName", required = false) String districtName,
+            @RequestParam(value = "district", required = false) String districtName,
             @RequestParam(value = "startTime", required = false) Date startTime,
             @RequestParam(value = "endTime", required = false) Date endTime,
             @RequestHeader HttpHeaders headers
