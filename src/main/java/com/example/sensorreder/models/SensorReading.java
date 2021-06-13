@@ -1,8 +1,12 @@
 package com.example.sensorreder.models;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 import java.util.Date;
 
+
+@Component
 @Table(name = "SENSOR_READING")
 @Entity
 public class SensorReading {

@@ -1,7 +1,11 @@
 package com.example.sensorreder.models;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 
+
+@Component
 @Table(name = "CLIENT")
 @Entity
 public class Client {
