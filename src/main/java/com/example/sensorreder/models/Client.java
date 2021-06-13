@@ -15,6 +15,9 @@ public class Client {
     @JoinColumn(name = "city_id", nullable = false)
     private City city;
 
+    @Column(name = "client_token", nullable = false, unique = true)
+    private String clientToken;
+
     public Long getId() {
         return id;
     }
@@ -29,5 +32,13 @@ public class Client {
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+    public String getClientToken() {
+        return clientToken;
+    }
+
+    public void setClientToken(String clientToken) {
+        this.clientToken = clientToken;
     }
 }
