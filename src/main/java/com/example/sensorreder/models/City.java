@@ -1,4 +1,4 @@
-package com.example.allianhw.models;
+package com.example.sensorreder.models;
 
 import javax.persistence.*;
 

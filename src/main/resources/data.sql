@@ -5,6 +5,13 @@ VALUES (2, 'Wien');
 INSERT INTO CITY(id, name)
 VALUES (3, 'Munchen');
 
+INSERT INTO CLIENT(client_token, city_id)
+VALUES ('token1', 1);
+INSERT INTO CLIENT(client_token, city_id)
+VALUES ('token2', 2);
+INSERT INTO CLIENT(client_token, city_id)
+VALUES ('token3', 3);
+
 INSERT INTO DISTRICT(id, name, city_id)
 VALUES (1, 'Gràcia', 1);
 INSERT INTO DISTRICT(id, name, city_id)

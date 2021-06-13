@@ -1,4 +1,4 @@
-package com.example.allianhw.result;
+package com.example.sensorreder.result;
 
 import java.util.Date;
 

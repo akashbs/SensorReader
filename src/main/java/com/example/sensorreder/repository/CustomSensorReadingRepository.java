@@ -1,6 +1,6 @@
-package com.example.allianhw.repository;
+package com.example.sensorreder.repository;
 
-import com.example.allianhw.result.SensorReadingResult;
+import com.example.sensorreder.result.SensorReadingResult;
 
 import java.util.Date;
 import java.util.List;

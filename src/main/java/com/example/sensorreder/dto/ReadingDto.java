@@ -1,4 +1,4 @@
-package com.example.allianhw.dto;
+package com.example.sensorreder.dto;
 
 import java.util.Date;
 

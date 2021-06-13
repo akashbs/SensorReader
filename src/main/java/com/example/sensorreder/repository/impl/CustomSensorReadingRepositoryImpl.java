@@ -1,11 +1,11 @@
-package com.example.allianhw.repository.impl;
+package com.example.sensorreder.repository.impl;
 
-import com.example.allianhw.models.City;
-import com.example.allianhw.models.District;
-import com.example.allianhw.models.Sensor;
-import com.example.allianhw.models.SensorReading;
-import com.example.allianhw.repository.CustomSensorReadingRepository;
-import com.example.allianhw.result.SensorReadingResult;
+import com.example.sensorreder.models.City;
+import com.example.sensorreder.models.District;
+import com.example.sensorreder.models.Sensor;
+import com.example.sensorreder.models.SensorReading;
+import com.example.sensorreder.repository.CustomSensorReadingRepository;
+import com.example.sensorreder.result.SensorReadingResult;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

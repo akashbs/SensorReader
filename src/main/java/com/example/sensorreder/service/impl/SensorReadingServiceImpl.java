@@ -1,10 +1,10 @@
-package com.example.allianhw.service.impl;
+package com.example.sensorreder.service.impl;
 
-import com.example.allianhw.dto.ReadingDto;
-import com.example.allianhw.dto.SensorReadingResponseDto;
-import com.example.allianhw.repository.SensorReadingRepository;
-import com.example.allianhw.result.SensorReadingResult;
-import com.example.allianhw.service.SensorReadingService;
+import com.example.sensorreder.dto.ReadingDto;
+import com.example.sensorreder.dto.SensorReadingResponseDto;
+import com.example.sensorreder.repository.SensorReadingRepository;
+import com.example.sensorreder.result.SensorReadingResult;
+import com.example.sensorreder.service.SensorReadingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

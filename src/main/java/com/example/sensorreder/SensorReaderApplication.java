@@ -1,13 +1,13 @@
-package com.example.allianhw;
+package com.example.sensorreder;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AllianzHwApplication {
+public class SensorReaderApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AllianzHwApplication.class, args);
+        SpringApplication.run(SensorReaderApplication.class, args);
     }
 
 }

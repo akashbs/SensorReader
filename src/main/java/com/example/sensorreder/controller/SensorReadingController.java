@@ -1,9 +1,9 @@
-package com.example.allianhw.controller;
+package com.example.sensorreder.controller;
 
 
-import com.example.allianhw.excpetion.UnauthorisedException;
-import com.example.allianhw.service.ClientService;
-import com.example.allianhw.service.SensorReadingService;
+import com.example.sensorreder.excpetion.UnauthorisedException;
+import com.example.sensorreder.service.ClientService;
+import com.example.sensorreder.service.SensorReadingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

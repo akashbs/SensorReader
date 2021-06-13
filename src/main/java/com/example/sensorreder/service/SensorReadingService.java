@@ -1,6 +1,6 @@
-package com.example.allianhw.service;
+package com.example.sensorreder.service;
 
-import com.example.allianhw.dto.SensorReadingResponseDto;
+import com.example.sensorreder.dto.SensorReadingResponseDto;
 
 import java.util.Date;
 

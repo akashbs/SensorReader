@@ -1,10 +1,10 @@
-package com.example.allianhw.service.impl;
+package com.example.sensorreder.service.impl;
 
 
-import com.example.allianhw.excpetion.UnauthorisedException;
-import com.example.allianhw.models.Client;
-import com.example.allianhw.repository.ClientRepository;
-import com.example.allianhw.service.ClientService;
+import com.example.sensorreder.excpetion.UnauthorisedException;
+import com.example.sensorreder.models.Client;
+import com.example.sensorreder.repository.ClientRepository;
+import com.example.sensorreder.service.ClientService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
